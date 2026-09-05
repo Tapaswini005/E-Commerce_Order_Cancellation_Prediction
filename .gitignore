@@ -1,0 +1,48 @@
+# Python cache
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter Notebook
+
+.ipynb_checkpoints/
+
+# IDE / Editor files
+
+.vscode/
+.idea/
+
+# Environment variables
+
+.env
+.env.*
+
+# Model files
+
+models/*.pkl
+models/*.joblib
+
+# Generated / processed data
+
+data/processed/
+
+# Logs
+
+*.log
+
+# OS generated files
+
+.DS_Store
+Thumbs.db
+
+# Streamlit
+
+.streamlit/secrets.toml
