@@ -19,4 +19,12 @@ if __name__ == "__main__":
     print("Shape:", df.shape)
     print("\nFirst 5 rows:")
     print(df.head())
+    
+    print(df.shape)
+    print(df.columns.tolist())
+    print(df.info())
+    print(df.isnull().sum())
+    print("\nOrder Status values:")
+    print(df["Status Pesanan"].value_counts())
+
        
