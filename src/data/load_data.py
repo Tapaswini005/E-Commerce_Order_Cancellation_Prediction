@@ -18,7 +18,10 @@ if __name__ == "__main__":
     print("Dataset loaded successfully!")
     print("Shape:", df.shape)
     print("\nFirst 5 rows:")
+    
     print(df.head())
+    
+    print(df.tail())
     
     print(df.shape)
     print(df.columns.tolist())
