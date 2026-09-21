@@ -1,8 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
 from src.data.load_data import load_data
-
 
 def perform_eda(df):
 
@@ -11,35 +9,35 @@ def perform_eda(df):
     print("=" * 50)
 
     # --------------------------------------------------
-    # 1. Dataset shape
+    # 1. Dataset shape:
     # --------------------------------------------------
 
     print("\nDataset Shape:")
     print(df.shape)
 
     # --------------------------------------------------
-    # 2. Dataset information
+    # 2. Dataset information:
     # --------------------------------------------------
 
     print("\nDataset Information:")
     print(df.info())
 
     # --------------------------------------------------
-    # 3. Missing values
+    # 3. Missing values:
     # --------------------------------------------------
 
     print("\nMissing Values:")
     print(df.isnull().sum())
 
     # --------------------------------------------------
-    # 4. Duplicate rows
+    # 4. Duplicate rows:
     # --------------------------------------------------
 
     print("\nDuplicate Rows:")
     print(df.duplicated().sum())
 
     # --------------------------------------------------
-    # 5. Target distribution
+    # 5. Target distribution:
     # --------------------------------------------------
 
     print("\nOrder Status Distribution:")
@@ -54,14 +52,14 @@ def perform_eda(df):
     )
 
     # --------------------------------------------------
-    # 6. Numerical summary
+    # 6. Numerical summary:
     # --------------------------------------------------
 
     print("\nNumerical Features Summary:")
     print(df.describe())
 
     # --------------------------------------------------
-    # 7. Cancellation distribution
+    # 7. Cancellation distribution:
     # --------------------------------------------------
 
     plt.figure(figsize=(6, 4))
@@ -76,7 +74,7 @@ def perform_eda(df):
     plt.show()
 
     # --------------------------------------------------
-    # 8. Cancellation by payment type
+    # 8. Cancellation by payment type:
     # --------------------------------------------------
 
     payment_status = pd.crosstab(
@@ -97,7 +95,7 @@ def perform_eda(df):
     plt.show()
 
     # --------------------------------------------------
-    # 9. Cancellation by app or website
+    # 9. Cancellation by app or website:
     # --------------------------------------------------
 
     channel_status = pd.crosstab(
@@ -118,7 +116,7 @@ def perform_eda(df):
     plt.show()
 
     # --------------------------------------------------
-    # 10. Cancellation by customer segment
+    # 10. Cancellation by customer segment:
     # --------------------------------------------------
 
     segment_status = pd.crosstab(
@@ -139,7 +137,7 @@ def perform_eda(df):
     plt.show()
 
     # --------------------------------------------------
-    # 11. Lead time vs cancellation
+    # 11. Lead time vs cancellation:
     # --------------------------------------------------
 
     df.boxplot(
@@ -156,7 +154,7 @@ def perform_eda(df):
     plt.show()
 
     # --------------------------------------------------
-    # 12. Total price vs cancellation
+    # 12. Total price vs cancellation:
     # --------------------------------------------------
 
     df.boxplot(
@@ -172,7 +170,6 @@ def perform_eda(df):
     plt.tight_layout()
     plt.show()
 
-
 if __name__ == "__main__":
 
     file_path = (
@@ -181,7 +178,5 @@ if __name__ == "__main__":
         r"\Ecommerce_Order_Cancellation_Prediction"
         r"\data\raw\df_train.csv"
     )
-
     df = load_data(file_path)
-
     perform_eda(df)
