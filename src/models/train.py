@@ -1,4 +1,5 @@
 import joblib
+import os
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -54,10 +55,8 @@ if __name__ == "__main__":
         r"\data\raw\df_train.csv"
     )
 
-    # Load data
     df = load_data(file_path)
 
-    # Preprocess data
     (
         X_train,
         X_test,
@@ -66,10 +65,32 @@ if __name__ == "__main__":
         preprocessor
     ) = preprocess_data(df)
 
-    # Train models
     trained_models = train_models(
         X_train,
         y_train
     )
 
-    print("\nAll models trained successfully!")
+    # Create models directory if it does not exist
+    os.makedirs("models", exist_ok=True)
+
+    # Save preprocessor
+    joblib.dump(
+        preprocessor,
+        "models/preprocessor.pkl"
+    )
+
+    print("\nPreprocessor saved!")
+
+    # Save trained models
+    for model_name, model in trained_models.items():
+
+        model_path = f"models/{model_name}.pkl"
+
+        joblib.dump(
+            model,
+            model_path
+        )
+
+        print(f"{model_name} saved!")
+
+    print("\nAll models trained and saved successfully!")
