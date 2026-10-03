@@ -8,7 +8,7 @@ The project uses Machine Learning classification algorithms to learn patterns fr
 
 ## 🎯 Objective
 
-The main objective of this project is to build a simple and reliable machine learning system that can:
+The main objective of this project is to build a simple and reliable machine learning system that can do predictions:
 
 * Analyze historical e-commerce order data
 * Clean and preprocess the data
